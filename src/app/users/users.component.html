@@ -1,0 +1,30 @@
+<table #tableRow>
+  <tr>
+    <th>Name</th>
+    <th>MobileNumber</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Action</th>
+  </tr>
+  
+  <tr  *ngFor="let user of users" > 
+      <td><input class="form-control" name="name" type="text" [(ngModel)]="user.name" [disabled]="user.editUserRow" #name="ngModel" ></td>
+      <td><input class="form-control" name="mobileNumber" type="text" [(ngModel)]="user.mobileNumber" [disabled]="user.editUserRow" #mobileNumber="ngModel" ></td>
+      <td><input class="form-control" name="address" type="text" [(ngModel)]="user.address" [disabled]="user.editUserRow" #address="ngModel"></td>
+      <td><input class="form-control" name="city" type="text" [(ngModel)]="user.city" [disabled]="user.editUserRow" #city="ngModel"></td>
+      <td><input class="form-control" name="state" type="text" [(ngModel)]="user.state" [disabled]="user.editUserRow" #state="ngModel"></td>
+      <td><input class="form-control" name="country" type="text" [(ngModel)]="user.country" [disabled]="user.editUserRow" #country="ngModel"></td>  
+      <td><a   (click)="edit(user)" *ngIf="user.editUserRow" >edit</a><br>
+        <a   (click)="delete(user)" *ngIf="user.editUserRow" >delete</a>
+        <a  (click)="save(user, name,mobileNumber,address,city,state,country)"  *ngIf="(!user.editUserRow) && (name.dirty || mobileNumber.dirty || address.dirty || city.dirty || state.dirty || country.dirty )" 
+        >Save</a> <br>
+        <a  (click)="cancel(user)"  *ngIf="!user.editUserRow">Cancel</a>
+      </td>
+  </tr>
+</table>
+
+<button (click)="add()">Add</button>
+
+<a routerLink="/sample" routerLinkActive="active">Navigate</a>

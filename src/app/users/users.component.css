@@ -1,0 +1,31 @@
+table, th, td{
+    border: 1px solid black;
+    padding: 2px 10px;
+}
+table{
+    border-collapse: collapse;
+}
+
+tr:hover{
+    background-color: blue
+}
+.highlightRow {
+   border: 3px solid blue
+}
+input{
+    border:none;
+    padding: 10px 0px;
+}
+
+td,th{
+    background-color: rgb(235, 235, 228);
+}
+
+a{
+    color: blue;
+    font-weight: 600;
+}
+
+button{
+    margin: 10px;
+}
